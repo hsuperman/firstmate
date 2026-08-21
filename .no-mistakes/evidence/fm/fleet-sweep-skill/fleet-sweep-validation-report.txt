@@ -1,0 +1,9 @@
+FLEET SWEEP VALIDATION RESULT
+Captain actions: provide a registered staging/live secondmate home if a real multi-home reply cycle must be witnessed.
+Autonomous repairs, dispatches, Linear corrections: none; no live items were present and no stale state was proven.
+Progressing work: none recorded in this isolated gate home.
+Blockers: none proven.
+Capacity constraints: none; no slot or host-resource evidence exists.
+Unavailable lanes: main-home Linear current-cycle lane (worktree is not linked to Linear).
+Unreconciled items: live multi-home pending-reply/Linear fallback cycle (zero registered secondmates in the structured registry).
+Executable proof: marked sends create correlated pending-reply records; captured remote replies ingest, deduplicate, acknowledge, and re-arm; registry snapshot failures remain explicit unknown/unavailable.

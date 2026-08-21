@@ -1,0 +1,16 @@
+{
+  "id": "1f97f122-2e17-4824-af3b-8afff204917c",
+  "ok": false,
+  "error": {
+    "code": "linear_no_linked_issue",
+    "message": "The current worktree is not linked to Linear.",
+    "data": {
+      "nextSteps": [
+        "Open a Linear-linked worktree or pass an explicit issue id."
+      ]
+    }
+  },
+  "_meta": {
+    "runtimeId": "10ab89eb-1744-458e-8619-5ab16fcb64cc"
+  }
+}
