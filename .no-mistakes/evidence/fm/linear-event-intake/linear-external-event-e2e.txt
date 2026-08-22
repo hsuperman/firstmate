@@ -1,0 +1,36 @@
+Firstmate typed Linear event ingress — end-to-end transcript
+
+1. Immediate producer invokes the stable local boundary
+accepted: event-db6c49b94221fa5f738368e9a85fe218408148cdfb4bc9b3f799ea96c6 1
+classify: event
+source=linear
+delivery=6d639540-62ee-4bc2-9063-a608d94d2220:2026-08-22T10:00:00.000Z
+result-mode: 600
+normalized-wake: check: procevent external-event event-db6c49b94221fa5f738368e9a85fe218408148cdfb4bc9b3f799ea96c6 1
+payload-in-wake: no
+captain-inbox-created: no
+supervision-before-handling: needed=true unhandled-results=1
+
+2. Webhook retry / hourly scan duplicate coalesces by issue UUID + updatedAt
+duplicate: event-db6c49b94221fa5f738368e9a85fe218408148cdfb4bc9b3f799ea96c6 1
+durable-result-count: 1
+
+3. Simulated restart replays the unhandled result
+reconciled: published=1 started=0 stopped=0 uncertain=0
+replayed-wake: check: procevent external-event event-db6c49b94221fa5f738368e9a85fe218408148cdfb4bc9b3f799ea96c6 1
+
+4. Explicit handling suppresses later retry/restart replay
+handled: event-db6c49b94221fa5f738368e9a85fe218408148cdfb4bc9b3f799ea96c6 1
+duplicate: event-db6c49b94221fa5f738368e9a85fe218408148cdfb4bc9b3f799ea96c6 1
+reconciled: published=0 started=0 stopped=0 uncertain=0
+wake-after-handling: none
+supervision-after-handling: needed=false unhandled-results=0
+
+5. A later issue revision remains discoverable
+accepted: event-98807669bbb2031aaedf0fbd0fe57a93f3450573267bc43426e058c250 1
+durable-result-count: 2
+
+6. Oversized untrusted input is rejected before capture
+exit-status: 1
+fm-procevent-external-event: payload exceeds FM_EXTERNAL_EVENT_MAX_BYTES (8)
+captured-results: 0
