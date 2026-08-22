@@ -1,29 +1,8 @@
-FIRSTMATE LINEAR EVENT INGRESS — OPERATOR E2E
-
-$ webhook/automation invokes the local typed boundary
-accepted: event-4cee5dd67d3b473b198dc9f50fd6f7d0e8eae456159117700781e99555 1
-
-$ immediate duplicate from webhook/hourly scan
-duplicate: event-4cee5dd67d3b473b198dc9f50fd6f7d0e8eae456159117700781e99555 1
-
-$ normalized wake (payload omitted by design)
-check	procevent:event-4cee5dd67d3b473b198dc9f50fd6f7d0e8eae456159117700781e99555:1	check: procevent external-event event-4cee5dd67d3b473b198dc9f50fd6f7d0e8eae456159117700781e99555 1
-
-$ adapter routing metadata and private file mode
-source=linear
-delivery=8b26a114-8cff-4f88-a581-988d942f6750:2026-08-22T14:05:00.000Z
-mode=600
-captain_inbox=absent
-payload_in_wake=no
-supervision_needed=true unhandled_results=1
-
-$ simulate restart after queue presentation, then reconcile durable state
-reconciled: published=1 started=0 stopped=0 uncertain=0
-check	procevent:event-4cee5dd67d3b473b198dc9f50fd6f7d0e8eae456159117700781e99555:1	check: procevent external-event event-4cee5dd67d3b473b198dc9f50fd6f7d0e8eae456159117700781e99555 1
-
-$ later updatedAt revision remains independently discoverable
-accepted: event-58e861d84fb3180430cbcd5167bacfe5def2f6041b1db99667f97b3289 1
-
-$ acknowledge the first reconciled result only after authoritative handling
-handled: event-4cee5dd67d3b473b198dc9f50fd6f7d0e8eae456159117700781e99555 1
-already-handled: event-4cee5dd67d3b473b198dc9f50fd6f7d0e8eae456159117700781e99555 1
+ok - untrusted payload is private and separated from captain authority
+ok - webhook and scan identities use one canonical key and coalesce
+ok - unhandled event survives restart and replays through process-event reconciliation
+ok - handled delivery stays durably deduplicated
+ok - capture commits before wake publication and remains recoverable
+ok - a later authoritative revision remains discoverable
+ok - Linear ingress rejects identities outside its canonical encoding contract
+ok - untrusted payload input is bounded before durable capture
