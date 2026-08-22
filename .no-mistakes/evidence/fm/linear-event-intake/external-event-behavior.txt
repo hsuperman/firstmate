@@ -1,0 +1,12 @@
+FM_TEST_BEGIN 2026-08-22T14:43:58Z tests/fm-procevent-external-event.test.sh family=unclassified expected_gate_skip=none
+ok - untrusted payload is private and separated from captain authority
+ok - delivery-key retries deduplicate and coalesce
+ok - unhandled event survives restart and replays through process-event reconciliation
+ok - handled delivery stays durably deduplicated
+ok - capture commits before wake publication and remains recoverable
+ok - a later authoritative revision remains discoverable
+ok - untrusted payload input is bounded before durable capture
+FM_TEST_END 2026-08-22T14:44:00Z tests/fm-procevent-external-event.test.sh exit=0 duration_ms=2517 gate_skip=false
+FM_TEST_SUMMARY total=1 failed=0 skipped_gate=0 duration_ms=2589
+FM_TEST_SUMMARY_FAMILY family=unclassified count=1 duration_ms=2517 failed=0
+FM_TEST_SLOWEST rank=1 script=tests/fm-procevent-external-event.test.sh duration_ms=2517
