@@ -1,8 +1,21 @@
-ok - untrusted payload is private and separated from captain authority
-ok - webhook and scan identities use one canonical key and coalesce
-ok - unhandled event survives restart and replays through process-event reconciliation
-ok - handled delivery stays durably deduplicated
-ok - capture commits before wake publication and remains recoverable
-ok - a later authoritative revision remains discoverable
-ok - Linear ingress rejects identities outside its canonical encoding contract
-ok - untrusted payload input is bounded before durable capture
+1. First producer ingest
+accepted: event-32615afb293c686afa495e437c0ce8bca8935ca32f360a97e9a23f433a 1 consumption=active-supervisor-required
+
+2. Independent producer retry of the same Linear revision
+duplicate: event-32615afb293c686afa495e437c0ce8bca8935ca32f360a97e9a23f433a 1 consumption=active-supervisor-required
+
+3. Durable queue (typed wake only; no untrusted payload)
+1787416294	1	check	procevent:event-32615afb293c686afa495e437c0ce8bca8935ca32f360a97e9a23f433a:1	check: procevent external-event event-32615afb293c686afa495e437c0ce8bca8935ca32f360a97e9a23f433a 1
+
+4. Private result mode and bounded authoritative locator metadata
+mode=600 file=/var/folders/mr/4lp4ss0d6f1_1_gsttvk4nrr0000gn/T/tmp.i2NvRVJ943/home/state/procevent-inbox/event-32615afb293c686afa495e437c0ce8bca8935ca32f360a97e9a23f433a.1.result
+event
+source=linear
+delivery=linear:abcdef12-3456-7890-abcd-ef1234567890@2026-08-22T10:00:00.000Z
+
+5. Simulated restart: move volatile queue aside, reconcile durable result
+reconciled: published=1 started=0 stopped=0 uncertain=0
+1787416294	2	check	procevent:event-32615afb293c686afa495e437c0ce8bca8935ca32f360a97e9a23f433a:1	check: procevent external-event event-32615afb293c686afa495e437c0ce8bca8935ca32f360a97e9a23f433a 1
+
+6. Confirm payload bytes were treated as data, not executed
+PASS: no payload command executed
