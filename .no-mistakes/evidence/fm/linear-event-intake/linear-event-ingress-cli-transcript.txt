@@ -1,0 +1,24 @@
+Operator invokes authenticated local/SSH boundary twice for the same Linear revision:
+accepted: event-81d07b6d34ef02a56f1fcb2bc72a863a6b9fcf3d3f7f6458e1eee6f8c7 1 consumption=active-supervisor-required
+duplicate: event-81d07b6d34ef02a56f1fcb2bc72a863a6b9fcf3d3f7f6458e1eee6f8c7 1 consumption=active-supervisor-required
+
+Persisted typed metadata:
+source=linear
+delivery=linear:4a1bc793-6f51-4d52-91c0-6d8b76ee2a40@2026-08-22T10:00:00.000Z
+
+Payload-free wake queue:
+check: procevent:event-81d07b6d34ef02a56f1fcb2bc72a863a6b9fcf3d3f7f6458e1eee6f8c7:1
+
+Privacy/authority checks:
+durable-result-mode=600
+payload-leaked-to-wake=no
+captain-inbox-created=no
+
+Simulated restart replay:
+check: procevent:event-81d07b6d34ef02a56f1fcb2bc72a863a6b9fcf3d3f7f6458e1eee6f8c7:1
+
+Handled acknowledgement and retry:
+duplicate: event-81d07b6d34ef02a56f1fcb2bc72a863a6b9fcf3d3f7f6458e1eee6f8c7 1 consumption=active-supervisor-required
+wake-after-handled-retry=no
+
+Temporary demo root: /tmp/fm-linear-evidence.fs8eMy
