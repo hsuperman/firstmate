@@ -1,0 +1,7 @@
+===== CONTROL B: psql --single-transaction with NO read-only statement =====
+ ro  
+-----
+ off
+(1 row)
+
+CREATE TABLE

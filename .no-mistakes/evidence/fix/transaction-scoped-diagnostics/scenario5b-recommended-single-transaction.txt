@@ -1,0 +1,8 @@
+===== SCENARIO 5b: RECOMMENDED form 'SET TRANSACTION READ ONLY' with psql --single-transaction (write is blocked) =====
+SET
+ in_txn_read_only 
+------------------
+ on
+(1 row)
+
+ERROR:  cannot execute CREATE TABLE in a read-only transaction

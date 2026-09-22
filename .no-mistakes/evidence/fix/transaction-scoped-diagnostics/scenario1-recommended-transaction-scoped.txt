@@ -1,0 +1,27 @@
+===== SCENARIO 1: recommended transaction-scoped form on a reused connection =====
+BEGIN
+SET
+ in_txn_read_only 
+------------------
+ on
+(1 row)
+
+SET
+ diagnostic_query 
+------------------
+                1
+(1 row)
+
+ROLLBACK
+ after_rollback_read_only 
+--------------------------
+ off
+(1 row)
+
+CREATE TABLE
+INSERT 0 1
+ rows_written 
+--------------
+            1
+(1 row)
+

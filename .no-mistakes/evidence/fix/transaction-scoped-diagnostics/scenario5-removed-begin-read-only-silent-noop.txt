@@ -1,0 +1,10 @@
+===== SCENARIO 5a: REMOVED form 'BEGIN READ ONLY' with psql --single-transaction (adversarial: silently read/write) =====
+WARNING:  there is already a transaction in progress
+BEGIN
+ in_txn_read_only 
+------------------
+ on
+(1 row)
+
+ERROR:  cannot execute CREATE TABLE in a read-only transaction
+

@@ -1,0 +1,9 @@
+===== SCENARIO 2: forbidden SET SESSION CHARACTERISTICS AS TRANSACTION READ ONLY on a reused connection =====
+SET
+ session_read_only 
+-------------------
+ on
+(1 row)
+
+ERROR:  cannot execute CREATE TABLE in a read-only transaction
+

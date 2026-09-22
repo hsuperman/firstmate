@@ -1,0 +1,9 @@
+===== SCENARIO 3: forbidden SET default_transaction_read_only = on on a reused connection =====
+SET
+ session_read_only 
+-------------------
+ on
+(1 row)
+
+ERROR:  cannot execute CREATE TABLE in a read-only transaction
+

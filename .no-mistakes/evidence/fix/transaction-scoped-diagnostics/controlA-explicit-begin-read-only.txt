@@ -1,0 +1,12 @@
+===== CONTROL A: explicit BEGIN then 'BEGIN READ ONLY' (no --single-transaction) =====
+BEGIN
+WARNING:  there is already a transaction in progress
+BEGIN
+ ro 
+----
+ on
+(1 row)
+
+ERROR:  cannot execute CREATE TABLE in a read-only transaction
+ROLLBACK
+
