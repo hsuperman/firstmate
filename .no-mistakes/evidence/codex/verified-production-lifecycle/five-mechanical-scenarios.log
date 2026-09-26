@@ -1,0 +1,121 @@
+candidate=75334de74c35c862473cd4e140930cda812185f5
+proof_dir=/tmp/v4proof.wp22CR
+
+=== fresh dispatch ===
+CASE spawn-invalid exit=1
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4proof.wp22CR/h
+error: --completion-policy must be landed or verified-production (got 'unknown')
+CASE spawn-local-verified exit=1
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4proof.wp22CR/h
+error: task spawn-local cannot launch: completion=verified-production requires the GitHub PR delivery path that records an immutable reviewed head; mode=local-only cannot supply that evidence identity
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4proof.wp22CR/h
+warning: /tmp/v4proof.wp22CR/h/data/spawn-exact/launch-brief.md records no ship branch; defaulting to legacy branch fm/spawn-exact
+spawned spawn-exact harness=codex kind=ship mode=no-mistakes yolo=off window=proof-four:fm-spawn-exact worktree=/home/byron/.treehouse/p-7bab20/9/p
+spawn-exact persisted=verified-production
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4proof.wp22CR/h
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+teardown: reaping leaked worktree process(es) for spawn-exact: 2505046 2506950
+teardown: force-killing leaked worktree process(es) for spawn-exact: 2505046
+A new version of treehouse is available: v2.3.0 → v3.0.0
+Run "treehouse update" to update
+
+🌳 Worktree returned to pool.
+/tmp/v4proof.wp22CR/p: pruned codex/verified-production-lifecycle
+/tmp/v4proof.wp22CR/p: STUCK: on diverged main, 0 commits behind origin/main - needs attention
+teardown spawn-exact complete (window proof-four:fm-spawn-exact, worktree /home/byron/.treehouse/p-7bab20/9/p)
+Backlog: spawn-exact just finished (this home keeps no markdown backlog at /tmp/v4proof.wp22CR/h/data/backlog.md). Update /tmp/v4proof.wp22CR/h/data/backlog.md - move spawn-exact to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.
+
+=== promotion ===
+CASE promote-local-verified exit=1
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  2 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: task promote-refused cannot promote: completion=verified-production requires the GitHub PR delivery path that records an immutable reviewed head; mode=local-only cannot supply that evidence identity
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+promoted promote-accepted to ship mode=no-mistakes yolo=off (teardown protection restored)
+wrote ship instructions for mode=no-mistakes: /tmp/v4proof.wp22CR/h/data/promote-accepted/ship-instructions.md
+next: FM_HOME=/tmp/v4proof.wp22CR/h bin/fm-send.sh fm-promote-accepted "$(cat /tmp/v4proof.wp22CR/h/data/promote-accepted/ship-instructions.md)"
+promote-accepted kind=ship persisted=landed
+
+=== legacy capture ===
+captured: task=capture-default project=p completion_policy=verified-production
+captured: task=capture-landed project=p completion_policy=landed
+captured: task=capture-verified project=p completion_policy=verified-production
+CASE capture-invalid exit=2
+error: unknown completion policy 'unknown'
+CASE capture-immutable exit=1
+error: task capture-landed already records completion_policy=landed; nothing was changed
+capture default=verified-production explicit=landed,verified-production invalid=refused immutable=refused
+
+=== canonical GitHub binder with missing worktree ===
+github={"headRefOid":"e21f60ff1ed3329909405861498480d4e401f70f","isDraft":false,"mergeCommit":{"oid":"31c47af563fab3d9a8e574a6a5d76281b92552e4"},"state":"MERGED","url":"https://github.com/kunchenguid/firstmate/pull/5550"}
+installed_runtime_revision=31c47af563fab3d9a8e574a6a5d76281b92552e4
+installed_policy_reader=no-mistakes off
+CASE binder-wrong-head exit=1
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4proof.wp22CR/h
+REFUSED: invalid verified-production outcome evidence: release.pr_head_revision does not match the task PR head
+CASE binder-wrong-merge exit=1
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4proof.wp22CR/h
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+REFUSED: verified-production outcome does not match the recorded merged PR and canonical merge revision
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4proof.wp22CR/h
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+/tmp/v4proof.wp22CR/p: STUCK: on diverged main, 0 commits behind origin/main - needs attention
+teardown binder-missing complete (window firstmate:fm-binder-missing, worktree /tmp/v4proof.wp22CR/missing-worktree)
+Backlog: binder-missing just finished (this home keeps no markdown backlog at /tmp/v4proof.wp22CR/h/data/backlog.md). Update /tmp/v4proof.wp22CR/h/data/backlog.md - move binder-missing to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.
+binder wrong-head=refused wrong-merge=refused exact=cleaned worktree=missing
+
+ALL FOUR MECHANICAL SCENARIOS PASSED candidate=75334de74c35c862473cd4e140930cda812185f5
+lab_cleanup=scheduled path=/tmp/v4proof.wp22CR
+candidate=75334de74c35c862473cd4e140930cda812185f5
+proof_dir=/tmp/v4relaunch.5Qdwpr
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4relaunch.5Qdwpr/h
+warning: /tmp/v4relaunch.5Qdwpr/h/data/relaunch-exact/launch-brief.md records no ship branch; defaulting to legacy branch fm/relaunch-exact
+spawned relaunch-exact harness=codex kind=ship mode=no-mistakes yolo=off window=proof-relaunch:fm-relaunch-exact worktree=/home/byron/.treehouse/p-7bab20/10/p
+before=verified-production
+can't find session: firstmate
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4relaunch.5Qdwpr/h
+error: task relaunch-exact's composer state is 'unknown', not proven empty; refusing to type the /quit exit command because it could concatenate onto existing text. Clear the composer, then retry 'relaunch'
+error: relaunch of relaunch-exact failed while stopping the old agent, which is still running; its original instructions were restored
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4relaunch.5Qdwpr/h
+error: task relaunch-exact's composer state is 'unknown', not proven empty; refusing to type the /quit exit command because it could concatenate onto existing text. Clear the composer, then retry 'relaunch'
+error: relaunch of relaunch-exact failed while stopping the old agent, which is still running; its original instructions were restored
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4relaunch.5Qdwpr/h
+error: task relaunch-exact's composer state is 'unknown', not proven empty; refusing to type the /quit exit command because it could concatenate onto existing text. Clear the composer, then retry 'relaunch'
+error: relaunch of relaunch-exact failed while stopping the old agent, which is still running; its original instructions were restored
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4relaunch.5Qdwpr/h
+error: task relaunch-exact's composer state is 'unknown', not proven empty; refusing to type the /quit exit command because it could concatenate onto existing text. Clear the composer, then retry 'relaunch'
+error: relaunch of relaunch-exact failed while stopping the old agent, which is still running; its original instructions were restored
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/v4relaunch.5Qdwpr/h
+error: task relaunch-exact's composer state is 'unknown', not proven empty; refusing to type the /quit exit command because it could concatenate onto existing text. Clear the composer, then retry 'relaunch'
+error: relaunch of relaunch-exact failed while stopping the old agent, which is still running; its original instructions were restored
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/sendemail-validate’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/pre-auto-gc’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/post-rewrite’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/pre-push’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/post-merge’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/post-checkout’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/pre-rebase’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/post-commit’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/prepare-commit-msg’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/pre-merge-commit’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/pre-commit’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/post-applypatch’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/pre-applypatch’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/applypatch-msg’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks/commit-msg’: Permission denied
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state/relaunch-exact.git-hooks’: Directory not empty
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h/state’: Directory not empty
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr/h’: Directory not empty
+find: cannot delete ‘/tmp/v4relaunch.5Qdwpr’: Directory not empty
